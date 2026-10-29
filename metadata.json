@@ -1,0 +1,8 @@
+{
+  "name": "الرماية التكتيكية",
+  "description": "تطبيق الرماية التكتيكية لتسجيل النتائج وإدارة الرماة والمراحل وحساب الـ Hit Factor والنسب المئوية ومشاركة التفاصيل.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
