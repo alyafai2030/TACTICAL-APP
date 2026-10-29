@@ -7,7 +7,7 @@ const INITIAL_STAGES: Stage[] = [
     date: '2026-10-25',
     rounds: 10,
     targets: 5,
-    image: '/1.png'
+    image: './1.png'
   },
   {
     id: 'stage-2',
@@ -15,7 +15,7 @@ const INITIAL_STAGES: Stage[] = [
     date: '2026-10-26',
     rounds: 16,
     targets: 8,
-    image: '/2.png'
+    image: './2.png'
   },
   {
     id: 'stage-3',
@@ -23,7 +23,7 @@ const INITIAL_STAGES: Stage[] = [
     date: '2026-10-28',
     rounds: 12,
     targets: 6,
-    image: '/3.png'
+    image: './3.png'
   }
 ];
 

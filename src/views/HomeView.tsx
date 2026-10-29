@@ -3,6 +3,7 @@ import { Volume2, VolumeX, Shield, Play, Users, Layers, Award, HardDrive } from 
 import { PageId, Stage, Shooter, ShooterScore } from '../types';
 import { soundEffects } from '../utils/audio';
 import { getRemainingStoragePercentage } from '../utils/storage';
+import { getAssetUrl } from '../utils/assets';
 
 interface HomeViewProps {
   stages: Stage[];
@@ -22,9 +23,9 @@ export const HomeView: React.FC<HomeViewProps> = ({
   const [storagePerc, setStoragePerc] = useState(getRemainingStoragePercentage());
 
   const slides = [
-    { src: '/1.png', alt: 'رماية تكتيكية - وضعية الرمي' },
-    { src: '/2.png', alt: 'رماية تكتيكية - تبديل المخزن أثناء الحركة' },
-    { src: '/3.png', alt: 'رماية تكتيكية - التصويب الدقيق' },
+    { src: getAssetUrl('1.png'), alt: 'رماية تكتيكية - وضعية الرمي' },
+    { src: getAssetUrl('2.png'), alt: 'رماية تكتيكية - تبديل المخزن أثناء الحركة' },
+    { src: getAssetUrl('3.png'), alt: 'رماية تكتيكية - التصويب الدقيق' },
   ];
 
   useEffect(() => {
@@ -72,11 +73,11 @@ export const HomeView: React.FC<HomeViewProps> = ({
           <div className="relative group">
             <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-amber-500/20 via-sky-500/20 to-amber-500/20 blur-md opacity-75 group-hover:opacity-100 transition duration-500"></div>
             <img
-              src="/tr.png"
+              src={getAssetUrl('tr.png')}
               alt="شعار الرماية التكتيكية"
               className="relative w-36 h-36 object-contain drop-shadow-xl hover:scale-105 transition-transform duration-300"
               onError={(e) => {
-                (e.target as HTMLImageElement).src = '/assets/aistudio/tr_ca43038f.png';
+                (e.target as HTMLImageElement).src = getAssetUrl('assets/aistudio/tr_ca43038f.png');
               }}
             />
           </div>
@@ -194,11 +195,11 @@ export const HomeView: React.FC<HomeViewProps> = ({
       {/* Developer Logo & Signature Footer */}
       <div className="pt-4 border-t border-slate-800/60 flex flex-col items-center justify-center text-center">
         <img
-          src="/my4.png"
+          src={getAssetUrl('my4.png')}
           alt="شعار محمد اليافعي"
           className="w-20 h-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
           onError={(e) => {
-            (e.target as HTMLImageElement).src = '/assets/aistudio/my4_088c8d7d.png';
+            (e.target as HTMLImageElement).src = getAssetUrl('assets/aistudio/my4_088c8d7d.png');
           }}
         />
         <div className="text-[11px] text-slate-400 mt-1 font-medium">

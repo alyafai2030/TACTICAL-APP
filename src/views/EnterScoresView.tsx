@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, Target, Calendar, ChevronLeft, ShieldAlert } from 'lucide-react';
 import { Stage, Shooter, ShooterScore, PageId } from '../types';
+import { getAssetUrl } from '../utils/assets';
 
 interface EnterScoresViewProps {
   stages: Stage[];
@@ -30,7 +31,7 @@ export const EnterScoresView: React.FC<EnterScoresViewProps> = ({
         </button>
         <h1 className="text-lg font-black text-white">اختيار المرحلة</h1>
         <div className="w-8 flex justify-end">
-          <img src="/8.png" alt="رمز المرحلة" className="w-6 h-6 object-contain opacity-80" onError={(e) => { (e.target as HTMLImageElement).src = '/assets/aistudio/8_2dc2ee03.png'; }} />
+          <img src={getAssetUrl('8.png')} alt="رمز المرحلة" className="w-6 h-6 object-contain opacity-80" onError={(e) => { (e.target as HTMLImageElement).src = getAssetUrl('assets/aistudio/8_2dc2ee03.png'); }} />
         </div>
       </div>
 
@@ -104,7 +105,7 @@ export const EnterScoresView: React.FC<EnterScoresViewProps> = ({
                 <div className="flex items-center gap-2">
                   {stage.image && (
                     <img
-                      src={stage.image}
+                      src={getAssetUrl(stage.image)}
                       alt={stage.name}
                       className="w-14 h-14 rounded-xl object-cover border border-slate-700"
                     />

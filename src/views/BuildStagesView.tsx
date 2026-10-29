@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { Stage, PageId } from '../types';
 import { ConfirmModal } from '../components/ConfirmModal';
+import { getAssetUrl } from '../utils/assets';
 
 interface BuildStagesViewProps {
   stages: Stage[];
@@ -190,7 +191,7 @@ export const BuildStagesView: React.FC<BuildStagesViewProps> = ({
                 <div className="flex items-center gap-2 shrink-0">
                   {stage.image && (
                     <img
-                      src={stage.image}
+                      src={getAssetUrl(stage.image)}
                       alt={stage.name}
                       className="w-12 h-12 rounded-xl object-cover border border-slate-700"
                     />
@@ -339,23 +340,26 @@ export const BuildStagesView: React.FC<BuildStagesViewProps> = ({
                 {/* Preset quick image selection */}
                 <div className="flex items-center gap-2 mt-2">
                   <span className="text-[10px] text-slate-400">نماذج جاهزة:</span>
-                  {['/1.png', '/2.png', '/3.png', '/stage.png'].map((imgSrc, i) => (
-                    <img
-                      key={i}
-                      src={imgSrc}
-                      alt={`نموذج ${i + 1}`}
-                      onClick={() => setFormImage(imgSrc)}
-                      className={`w-9 h-9 rounded-lg object-cover cursor-pointer border-2 transition-transform hover:scale-105 ${
-                        formImage === imgSrc ? 'border-amber-400 shadow-sm' : 'border-slate-700'
-                      }`}
-                    />
-                  ))}
+                  {['1.png', '2.png', '3.png', 'stage.png'].map((imgName, i) => {
+                    const resolved = getAssetUrl(imgName);
+                    return (
+                      <img
+                        key={i}
+                        src={resolved}
+                        alt={`نموذج ${i + 1}`}
+                        onClick={() => setFormImage(resolved)}
+                        className={`w-9 h-9 rounded-lg object-cover cursor-pointer border-2 transition-transform hover:scale-105 ${
+                          formImage === resolved ? 'border-amber-400 shadow-sm' : 'border-slate-700'
+                        }`}
+                      />
+                    );
+                  })}
                 </div>
 
                 {formImage && (
                   <div className="mt-2 text-center">
                     <img
-                      src={formImage}
+                      src={getAssetUrl(formImage)}
                       alt="معاينة المرحلة"
                       className="max-h-28 mx-auto rounded-xl border border-slate-700 object-cover"
                     />
